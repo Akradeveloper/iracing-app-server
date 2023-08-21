@@ -10,15 +10,15 @@ app.use(express.json());
 
 // Configura tu transporte de correo SendGrid aquí
 sgMail.setApiKey(
-  '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'
+  process.env.REACT_APP_SENDGRID_API_KEY
 );
 
 app.post("/send-email", async (req, res) => {
   const { name, email, message } = req.body;
 
   const msg = {
-    to: 'akrapovices@gmail.com', // Change to your recipient
-    from: 'akradeveloper@gmail.com', // Change to your verified sender
+    to: process.env.REACT_APP_SENDGRID_RECIPIENT_EMAIL, // Change to your recipient
+    from: process.env.REACT_APP_SENDGRID_SENDER_EMAIL, // Change to your verified sender
     subject: "Mensaje de " + name + "   :   " + email,
     text: message,
     html: "<strong>"+ message +"</strong>",
