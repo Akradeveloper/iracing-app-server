@@ -6,7 +6,7 @@ const app = express();
 
 app.use(cors()); // Habilita CORS para todas las rutas
 
-app.use(express.json());
+app.use(express.text());
 
 // Configura tu transporte de correo SendGrid aquí
 sgMail.setApiKey(
