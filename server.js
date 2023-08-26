@@ -87,12 +87,12 @@ app.post("/send-email", async (req, res) => {
 
   try {
     await sgMail.send(msg);
-    res.status(200).send({emailSentMessageOK});
+    res.status(200).send(emailSentMessageOK);
   } catch (error) {
     console.error("Error sending email:", error);
     res
       .status(500)
-      .send({ emailSentMessageNOOK });
+      .send( emailSentMessageNOOK );
   }
 });
 
